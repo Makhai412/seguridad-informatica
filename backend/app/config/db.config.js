@@ -1,8 +1,8 @@
 export default {
     HOST: 'localhost',
-    USER: 'postgres',
-    PASSWORD: '12345',
-    DB: 'testdb',
+    USER: 'vagrant',
+    PASSWORD: 'vagrant',
+    DB: 'vagrant',
     dialect: 'postgres',
     PORT: 5432,
     pool: {
