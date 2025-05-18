@@ -6,7 +6,7 @@ import tutorialRoutes from "./app/routes/tutorial.routes.js";
 const app = express();
  
 const corsOptions = {
-  origin: "http://localhost:5173"
+   origin: "192.168.50.3"
 };
  
 app.use(cors(corsOptions));
