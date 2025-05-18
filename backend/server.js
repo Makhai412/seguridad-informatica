@@ -7,8 +7,7 @@ const app = express();
  
 const corsOptions = {
   origin: "*", // Permitir acceso desde cualquier origen durante desarrollo
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  allowedHeaders: ["Content-Type", "Authorization"]
+  
 };
  
 app.use(cors(corsOptions));
