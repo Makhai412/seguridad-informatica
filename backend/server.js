@@ -6,9 +6,7 @@ import tutorialRoutes from "./app/routes/tutorial.routes.js";
 const app = express();
  
 const corsOptions = {
-  origin: "*", // Allow access from any origin during development
-  // For production, you would want to restrict this to your frontend domains
-  // origin: ["http://192.168.50.30", "http://192.168.50.10", "http://192.168.50.20", "http://192.168.50.11", "http://192.168.50.12"],
+  origin: "*", // Permitir acceso desde cualquier origen durante desarrollo
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"]
 };
@@ -17,13 +15,13 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
  
-// Add headers to show which server handled the request
+// Agregar encabezados para mostrar qué servidor manejó la solicitud
 app.use((req, res, next) => {
   res.header("X-Backend-Server", process.env.HOSTNAME || "unknown");
   next();
 });
 
-// Simple route
+// Ruta simple
 app.get("/", (req, res) => {
   res.json({ 
     message: "Welcome to the Tutorial Application.",
@@ -31,18 +29,18 @@ app.get("/", (req, res) => {
   });
 });
  
-// Routes
+// Rutas
 tutorialRoutes(app);
  
-// Sync database
+// Sincronizar base de datos
 db.sequelize.sync().then(() => {
   console.log("Synced db.");
 }).catch(err => {
   console.error("Failed to sync db:", err);
 });
  
-// Make sure we're using the same port as in Nginx config (3000)
-const PORT = process.env.PORT || 3000;
+// Usar el puerto 3000 como en la configuración de Nginx
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
