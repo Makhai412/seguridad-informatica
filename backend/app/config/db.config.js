@@ -2,7 +2,7 @@ export default {
     HOST: 'localhost',
     USER: 'vagrant',
     PASSWORD: 'vagrant',
-    DB: 'vagrant',
+    DB: 'todoapp',
     dialect: 'postgres',
     PORT: 5432,
     pool: {
