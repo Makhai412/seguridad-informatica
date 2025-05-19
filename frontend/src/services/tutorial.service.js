@@ -1,7 +1,11 @@
+// Archivo modificado para frontend/src/services/tutorial.service.js
+
 import axios from "axios";
  
 const http = axios.create({
-  baseURL: "http://192.168.50.30:3000/api",
+  // Usamos la URL relativa en lugar de la IP directa
+  // para que funcione a través del balanceador
+  baseURL: import.meta.env.VITE_API_URL || "/api",
   headers: {
     "Content-Type": "application/json",
   },
